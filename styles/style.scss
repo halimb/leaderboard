@@ -2,6 +2,8 @@ $a: 20px;
 $bg: #333;
 $odd: #aaa;
 $even: #eee;
+$row-height: 3*$a;
+$avatar: $row-height * .7;
 
 body {
 	color: white;
@@ -9,7 +11,9 @@ body {
 }
 
 img {
+	max-width: $row-height;
 	height: 80%;
+	border-radius: 50%;
 }
 
 .table {
@@ -17,30 +21,36 @@ img {
 	display: flex;
 	flex-direction: column;
 	border: 1px solid black;
-	height: 50%;
+	min-height: $a;
 	width: 80%;
-	margin: auto;
-	top: 0; right: 0;
-	bottom: 0; left: 0;
+	margin: 3 * $a auto;
+	right: 0; left: 0;
 	position: absolute;
 }
 
-.row {
-	color: black;
-	width: 100%;
-	height: 100%;
+.flex-row {
 	display: flex;
 	flex-direction: row;
+}
+
+.row {
+	@extend .flex-row;
+	height: $row-height;
+	color: black;
+	width: 100%;
+	align-items: center;
+	justify-content: center;
 }
 
 .field {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	text-align: center;
-	padding: 0 $a;
-	border: 1px solid black;
+	padding: 0 $a * .5;
+	line-height: $row-height;
+	border: 1px solid rgba(0,0,0,.1);
 	width: 100%;
-	height: 100%;
+	min-height: 50%;
 }
 
 .row:nth-of-type(odd) {
@@ -51,7 +61,36 @@ img {
 	background-color: $even;
 }
 
+.rank {
+	width: 20%;
+}
 
-.field:nth-of-type(2) {
-	width: auto;
+.user {
+	padding: 0;
+	min-width: $row-height * 3;
+	
+	.username {
+		width: 100%;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		text-align: left;
+		// background-color: yellow;
+	}
+
+	.avatar {
+		width: 90%;
+		min-width: $avatar;
+		top: 0; bottom:0;
+		margin: auto 0;
+		// background-color: purple;
+	}
+	
+}
+
+.section-title {
+	font-size: 120%;
+	padding-top: $a;
+	padding-bottom: $a;
+	text-align: center;
+	line-height: $a;
 }
