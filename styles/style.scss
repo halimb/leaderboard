@@ -1,12 +1,30 @@
+//Dimensions
 $a: 20px;
-$bg: #333;
-$odd: #aaa;
-$even: #eee;
-$row-height: 3*$a;
+$row-height: 2.5*$a;
 $avatar: $row-height * .7;
+$header: $row-height * 1.5;
+
+//Colors
+$bg: #333;
+$odd: #ddd;
+$even: #fff;
+$link: #252;
+$title-bar: #181;
+$border: rgba(0,0,0,.1);
+
+@font-face {
+	font-family: "Khula";
+	src: url("../fonts/Khula-Regular.ttf");
+}
+
+@font-face {
+	font-family: "Khula-b";
+	src: url("../fonts/Khula-SemiBold.ttf");
+}
 
 body {
-	color: white;
+	font-family: "Khula";
+	font-size: $a * .75;
 	background-color: $bg; 
 }
 
@@ -16,7 +34,18 @@ img {
 	border-radius: 50%;
 }
 
+a {
+	font-family: "Khula-b";
+	color: $link;
+	text-decoration: none;
+}
+
+a:hover{
+	text-decoration: underline;
+}
+
 .table {
+	border-radius: 5px;
 	overflow: hidden;
 	display: flex;
 	flex-direction: column;
@@ -36,10 +65,32 @@ img {
 .row {
 	@extend .flex-row;
 	height: $row-height;
-	color: black;
 	width: 100%;
 	align-items: center;
 	justify-content: center;
+}
+
+.header {
+	height: $header;
+	.logo {
+		float: left;
+		margin-right: $a;
+		height: $header * .6;
+	}
+}
+
+.section-bar {
+	height: $row-height * .7;
+
+	.section-title {
+		font-family: "Khula-b";
+		padding-top: $a;
+		padding-bottom: $a;
+		text-align: center;
+		line-height: $a;
+		color: white;
+		background: $title-bar;
+	}
 }
 
 .field {
@@ -48,7 +99,7 @@ img {
 	text-align: center;
 	padding: 0 $a * .5;
 	line-height: $row-height;
-	border: 1px solid rgba(0,0,0,.1);
+	border: 1px solid $border;
 	width: 100%;
 	min-height: 50%;
 }
@@ -66,10 +117,12 @@ img {
 }
 
 .user {
+	oveflow: hidden;
 	padding: 0;
 	min-width: $row-height * 3;
 	
 	.username {
+		 white-space: nowrap;
 		width: 100%;
 		overflow: hidden;
 		text-overflow: ellipsis;
@@ -82,15 +135,47 @@ img {
 		min-width: $avatar;
 		top: 0; bottom:0;
 		margin: auto 0;
-		// background-color: purple;
+		 //background-color: purple;
 	}
 	
 }
 
-.section-title {
-	font-size: 120%;
-	padding-top: $a;
-	padding-bottom: $a;
-	text-align: center;
-	line-height: $a;
+.clickable {
+	cursor: pointer;
+}
+
+@media screen and (max-width: 800px) {
+
+	body {
+		font-family: "Khula-b";
+		font-size: $a * .6;
+	}
+
+	img {
+			height: 70%;
+	}
+
+	.table {
+		width: 85%;
+		margin-top: $a;
+	}
+
+	.title-bar {
+		overflow: hidden;
+		height: $row-height * 1.2;
+		.section-title {
+			font-size: 90%;
+			line-height: $row-height * .3;
+		}
+	}
+	.rank {
+		width: 30%;
+	}
+
+	.user {
+		.avatar {
+			margin: auto $a * .35;
+			width: 50%;
+		}
+	}
 }
