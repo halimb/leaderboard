@@ -10,8 +10,8 @@ export class TableContainer extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-						recent: "Fetching data...",
-						allTime: "Fetching data..."	
+						recent: "Loading...",
+						allTime: "Loading..."
 					 }
 	}
 
@@ -24,8 +24,8 @@ export class TableContainer extends React.Component {
 
 	render() {
 		return(
-				<Table  recent={this.state.recent}
-						allTime={this.state.allTime} />
+				<Table  allTime={this.state.allTime} 
+						recent={this.state.recent}	/>
 			)
 	}
 }
