@@ -23602,6 +23602,7 @@ class Table extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 class Row extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 	render() {
 		var user = this.props.data;
+		var url = "https://www.freecodecamp.com/" + user.username;
 		return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 			"div",
 			{ className: "row" },
@@ -23612,7 +23613,7 @@ class Row extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 			),
 			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 				"a",
-				{ className: "field user", href: "https://www.google.com", target: "_blank" },
+				{ className: "field user", href: url, target: "_blank" },
 				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__User_js__["a" /* User */], { name: user.username, src: user.img })
 			),
 			__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
