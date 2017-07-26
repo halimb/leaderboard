@@ -4,6 +4,7 @@ import { User } from "./User.js";
 export class Row extends React.Component {
 	render() {
 		var user = this.props.data;
+		var url = "https://wwww.freecodecamp.com/" + user.username;
 		return (
 			<div className="row">
 				<div className="field rank">{this.props.rank}</div>
