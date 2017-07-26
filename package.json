@@ -4,6 +4,7 @@
   "description": "freecodecamp project: build a fcc camper leaderboard using react and sass",
   "main": "index.js",
   "scripts": {
+    "build": "webpack",
     "start": "webpack-dev-server"
   },
   "repository": {
