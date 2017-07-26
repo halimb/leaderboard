@@ -20,8 +20,13 @@ module.exports = {
 			},
 
 			{
-				test: /\.(png|jpg)$/,
+				test: /\.png$/,
 				exclude: /node_modules/,
+				loader: "url-loader?name=img/[name].[ext]"
+			},
+
+			{
+				test: /\.ttf$/,
 				loader: "url-loader"
 			}
 		]
@@ -29,6 +34,6 @@ module.exports = {
 
 	devServer: {
 		contentBase: __dirname + "/build",
-		port: 8080
+		port: 3000
 	}
 }
