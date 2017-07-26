@@ -1,5 +1,6 @@
 import React from "react";
 import { Row } from "./Row";
+import { Header } from "./Header";
 
 export class Table extends React.Component {
 	constructor(props) {
@@ -22,13 +23,20 @@ export class Table extends React.Component {
 
 		return (
 				<div className="table">
-					<div className="row">
+					<Header/>
+					<div className="row section-bar">
 						<div className="field rank section-title">Rank</div>
 						<div className="field user section-title">Camper</div>
-						<div onClick={ () => this.setState({mostRecent: false}) } 
-							className="field section-title">All time points</div>
 						<div onClick={ () => this.setState({mostRecent: true}) } 
-							className="field section-title">Points in past 30 days</div>
+							className="field section-title clickable">
+							Past 30 days&nbsp; 
+							{ this.state.mostRecent ? <span>&#9660;</span> : "" }
+						</div>
+						<div onClick={ () => this.setState({mostRecent: false}) } 
+							className="field section-title clickable">
+							All time&nbsp;
+							{ this.state.mostRecent ? "" : <span>&#9660;</span> }
+						</div>
 					</div>
 					{content}
 				</div>
